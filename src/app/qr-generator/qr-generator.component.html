@@ -1,0 +1,52 @@
+<mat-card class="qr-generator-card">
+  <mat-card-header>
+    <mat-card-title>Generador de Códigos QR</mat-card-title>
+    <mat-card-subtitle>Personaliza y genera tu código QR fácilmente</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>URL</mat-label>
+      <input matInput [(ngModel)]="url" placeholder="Introduce la URL">
+    </mat-form-field>
+
+    <div class="color-selectors">
+      <mat-form-field appearance="outline" class="color-field">
+        <mat-label>Color QR</mat-label>
+        <input matInput [(ngModel)]="fillColor" type="color" class="color-picker">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="color-field">
+        <mat-label>Color Fondo</mat-label>
+        <input matInput [(ngModel)]="backColor" type="color" class="color-picker">
+      </mat-form-field>
+    </div>
+
+    <div class="file-upload">
+      <label for="icon-input" matTooltip="Sube un ícono para el centro del QR">
+        <mat-icon>upload</mat-icon>
+        <span>Seleccionar Ícono</span>
+      </label>
+      <input id="icon-input" type="file" (change)="onIconSelected($event)">
+    </div>
+
+    <!-- Previsualización del ícono -->
+    <div *ngIf="iconPreviewUrl" class="icon-preview">
+      <h4>Previsualización del Ícono:</h4>
+      <img [src]="iconPreviewUrl" alt="Icon Preview" class="preview-image">
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions align="end">
+    <button mat-raised-button color="primary" (click)="generateQr()">Generar QR</button>
+    <button mat-raised-button color="accent" [disabled]="!qrBlob" (click)="downloadQr()">Descargar QR</button>
+  </mat-card-actions>
+
+  <mat-card-content *ngIf="isLoading">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </mat-card-content>
+
+  <mat-card-content *ngIf="qrImageUrl">
+    <img [src]="qrImageUrl" alt="Generated QR Code" class="qr-image">
+  </mat-card-content>
+</mat-card>

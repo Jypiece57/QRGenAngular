@@ -1,0 +1,65 @@
+.icon-preview {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.preview-image {
+  max-width: 100px;
+  max-height: 100px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+}
+
+.qr-generator-card {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.color-selectors {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.color-field {
+  flex: 1;
+}
+
+.color-picker {
+  height: 36px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.file-upload {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+#icon-input {
+  display: none;
+}
+
+.qr-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  margin-top: 1rem;
+}
+
+mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
